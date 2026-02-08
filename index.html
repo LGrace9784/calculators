@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo">Calculators</h1>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Compound Interest</a></li>
+                    <li><a href="../retirement.html">Retirement</a></li>
+                    <li><a href="../eFund.html">E-Fund</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculators-hero">
+            <div class="container">
+                <h1>Compound Interest Calculator</h1>
+                <p>Use this calculator to help project what your investment may be worth over time.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-card"><!-- Compound Interest Calculator Start-->
+                    <div class="calculator-content">
+                        <div class="calculator-interface">
+                            <div class="compound-interest-form">
+                                <form id="compound-interest-form">
+                                    <div class="form-group">
+                                        <label for="principal">Principal Amount ($)</label>
+                                        <input type="number" id="principal" step="0.01" min="0" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="interest-rate">Annual Interest Rate (%)</label>
+                                        <input type="number" id="interest-rate" step="0.01" min="0" max="100" required>
+                                        <small class="form-hint">Safe range: 7% - 10% | Average Range: 10% - 12%</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="monthly-contribution">Monthly Contribution ($)</label>
+                                        <input type="number" id="monthly-contribution" step="0.01" min="0" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="years">Time Period (Years)</label>
+                                        <input type="number" id="years" min="1" max="50" required>
+                                    </div>
+
+                                    <p style="color: #888; font-style: italic; margin-bottom: 20px;">Fill in the form above and click Calculate to see your results</p>
+
+                                    <button type="submit" class="btn">Calculate</button>
+                                    <button type="button" id="reset-btn-compound" class="btn" style="background-color: #666; margin-left: 10px;">Reset</button>
+                                </form>
+
+                                    <div id="results" style="margin-top: 20px;">
+                                        <h3>Compounded Results:</h3>
+
+                                        <div class="form-group">
+                                            <label>Final Amount</label>
+                                            <output id="final-amount">--</output>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Total Contributions</label>
+                                            <output id="total-contributions">--</output>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Interest Earned</label>
+                                            <output id="interest-earned">--</output>
+                                        </div>
+
+                                        <div class="form-group" id="formula-section" style="display: none">
+                                            <label>Mathematical Formula Used</label>
+                                            <p id="calculation-formula"></p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Calculators. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
