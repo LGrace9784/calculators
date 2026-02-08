@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo">Calculators</h1>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Compound Interest</a></li>
+                    <li><a href="retirement.html">Retirement</a></li>
+                    <li><a href="eFund.html">E-Fund</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculators-hero">
+            <div class="container">
+                <h1>Retirement Calculator</h1>
+                <p>Use this calculator to help estimate what your retirement account will look like when you are ready to retire.</p>
+                <p><strong>Note:</strong> You are able to pull from your retirement accounts without penalty when you reach 59 1/2 years of age.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-card"><!-- Retirement Calculator Start-->
+                    <div class="calculator-content">
+                        <div class="calculator-interface">
+                            <div class="retirement-form">
+                                <form id="retirement-form">
+                                    <div class="form-group">
+                                        <label for="age">Current Age: </label>
+                                        <input type="number" id="age" step="0.01" min="0" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retirement-age">Estimated Retirement Age: </label>
+                                        <input type="number" id="retirement-age" step="0.01" min="0" max="100" required>
+                                        <small class="form-hint">You can pull from your retirement accounts penalty free when you reach 59 1/2</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="current-amount">Current Amount in Retirement Accounts: ($)</label>
+                                        <input type="number" id="current-amount" step="0.01" min="0" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="monthly-contribution-retirement">Monthly Contribution: ($)</label>
+                                        <input type="number" id="monthly-contribution-retirement" step="0.01" min="0" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="interest-rate-retirement">Projected Annual ROI: (%)</label>
+                                        <input type="number" id="interest-rate-retirement" min="1" max="50" required>
+                                        <small class="form-hint">Average ROI is between 7% - 10%</small>
+                                    </div>
+
+                                    <p style="color: #888; font-style: italic; margin-bottom: 20px;">Fill in the form above and click Calculate to see your results</p>
+
+                                    <button type="submit" class="btn">Calculate</button>
+                                    <button type="button" id="reset-btn-retirement" class="btn" style="background-color: #666; margin-left: 10px;">Reset</button>
+                                </form>
+
+                                    <div id="retirement-results" style="margin-top: 20px;">
+                                        <h3>Retirement Results:</h3>
+
+                                        <div class="form-group">
+                                            <label>Final Amount</label>
+                                            <output id="final-amount-retirement">--</output>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Total Contributions</label>
+                                            <output id="total-contributions-retirement">--</output>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Interest Earned</label>
+                                            <output id="interest-earned-retirement">--</output>
+                                        </div>
+
+                                        <div class="form-group" id="formula-section-retirement" style="display: none;">
+                                            <label>Mathematical Formula Used</label>
+                                            <p id="calculation-formula-retirement"></p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Calculators. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
