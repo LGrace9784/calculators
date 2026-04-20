@@ -386,7 +386,7 @@ header {
 
 .form-group {
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
 }
 
 .form-group label {
@@ -602,12 +602,14 @@ footer {
 
 .calculator-content {
     display: flex;
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .calculator-interface {
-    flex: 1;
+    max-width: 450px;
+    width: 100%;
 }
 
 .calculator-code {
