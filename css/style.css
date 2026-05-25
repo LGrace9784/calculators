@@ -729,6 +729,18 @@ footer {
     color: #888;
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.btn-secondary {
+    background-color: #666;
+}
+
 .calculator-results {
     margin-top: 2rem;
     padding: 1.5rem;
