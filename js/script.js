@@ -186,20 +186,20 @@ function initCompoundInterestCalculator() {
         const contributionsFutureValue = monthlyContribution * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
 
         // Total amount
-        const totalAmount = principalFutureValue + contributionsFutureValue;
+        const totalAmount = Math.round(principalFutureValue + contributionsFutureValue, 0);
 
         // Calculate total contributions and interest earned
-        const totalContributions = principal + (monthlyContribution * months);
-        const interestEarned = totalAmount - totalContributions;
+        const totalContributions = Math.round(principal + (monthlyContribution * months), 0);
+        const interestEarned = Math.round(totalAmount - totalContributions, 0);
 
         // Update button to show final amount
-        calculateBtn.textContent = `Final Amount: $${totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        calculateBtn.textContent = `Final Amount: $${totalAmount.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`;
         calculateBtn.style.backgroundColor = '#28a745'; // Green to indicate success
 
         // Display detailed results
-        document.getElementById('final-amount').textContent = '$' + totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('total-contributions').textContent = '$' + totalContributions.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('interest-earned').textContent = '$' + interestEarned.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('final-amount').textContent = '$' + totalAmount.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('total-contributions').textContent = '$' + totalContributions.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('interest-earned').textContent = '$' + interestEarned.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
 
         // Display the formula used
         const formulaText = `Formula: $${principal.toFixed(2)} × (1 + ${monthlyRate.toFixed(4)})^${months} + $${monthlyContribution.toFixed(2)} × [((1 + ${monthlyRate.toFixed(4)})^${months} - 1) ÷ ${monthlyRate.toFixed(4)}]`;
@@ -284,20 +284,20 @@ function initRetirementCalculator() {
         const contributionsFutureValueRetirement = monthlyContributionR * ((Math.pow(1 + monthlyRateR, monthsR) - 1) / monthlyRateR);
 
         // Total amount
-        const totalAmountR = principalFutureValueRetirement + contributionsFutureValueRetirement;
+        const totalAmountR = Math.round(principalFutureValueRetirement + contributionsFutureValueRetirement, 0);
 
         // Calculate total contributions and interest earned
-        const totalContributionsR = currentAmount + (monthlyContributionR * monthsR);
-        const interestEarnedR = totalAmountR - totalContributionsR;
+        const totalContributionsR = Math.round(currentAmount + (monthlyContributionR * monthsR), 0);
+        const interestEarnedR = Math.round(totalAmountR - totalContributionsR, 0);
 
         // Update button to show final amount
-        calculateBtn.textContent = `Final Amount: $${totalAmountR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        calculateBtn.textContent = `Final Amount: $${totalAmountR.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`;
         calculateBtn.style.backgroundColor = '#28a745'; // Green to indicate success
 
         // Display detailed results
-        document.getElementById('final-amount-retirement').textContent = '$' + totalAmountR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('total-contributions-retirement').textContent = '$' + totalContributionsR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('interest-earned-retirement').textContent = '$' + interestEarnedR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('final-amount-retirement').textContent = '$' + totalAmountR.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('total-contributions-retirement').textContent = '$' + totalContributionsR.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('interest-earned-retirement').textContent = '$' + interestEarnedR.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
 
         // Display the formula used
         const formulaText = `Formula: $${currentAmount.toFixed(2)} × (1 + ${monthlyRateR.toFixed(4)})^${monthsR} + $${monthlyContributionR.toFixed(2)} × [((1 + ${monthlyRateR.toFixed(4)})^${monthsR} - 1) ÷ ${monthlyRateR.toFixed(4)}]`;
@@ -381,22 +381,22 @@ function initEmergencyFundCalculator() {
 
         // Calculations
         const expenses = housing + utilities + gasoline + internet + insurance + groceries + phone + toiletries + debtMin + misc;
-        const remaining = income - expenses;
-        const emergencyFundMin = expenses;
-        const emergencyFundMedium1 = expenses * 3;
-        const emergencyFundMedium2 = expenses * 6;
-        const emergencyFundMax = expenses * 12;
+        const remaining = Math.round(income - expenses, 0);
+        const emergencyFundMin = Math.round(expenses, 0);
+        const emergencyFundMedium1 = Math.round(expenses * 3, 0);
+        const emergencyFundMedium2 = Math.round(expenses * 6, 0);
+        const emergencyFundMax = Math.round(expenses * 12, 0);
 
         // Update button to show final amount
-        calculateBtn.textContent = `Monthly Expenses: $${expenses.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        calculateBtn.textContent = `Monthly Expenses: $${expenses.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`;
         calculateBtn.style.backgroundColor = '#28a745'; // Green to indicate success
 
         // Display detailed results
-        document.getElementById('remaining-amount').textContent = '$' + remaining.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('minimum-amount').textContent = '$' + emergencyFundMin.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('medium-amount').textContent = '$' + emergencyFundMedium1.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) +
-                                                            ' - $' + emergencyFundMedium2.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        document.getElementById('max-amount').textContent = '$' + emergencyFundMax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('remaining-amount').textContent = '$' + remaining.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('minimum-amount').textContent = '$' + emergencyFundMin.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('medium-amount').textContent = '$' + emergencyFundMedium1.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) +
+                                                            ' - $' + emergencyFundMedium2.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        document.getElementById('max-amount').textContent = '$' + emergencyFundMax.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
 
         resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
